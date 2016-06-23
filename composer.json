@@ -1,0 +1,25 @@
+{
+    "name": "edwardnelson/planmanager",
+    "description": "Plan manager for Laravel",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "^5.2",
+        "phpunit/phpunit": "^4.8",
+        "mockery/mockery": "^0.9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "EdwardNelson\\PlanManager\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.0"
+    }
+}
