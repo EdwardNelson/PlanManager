@@ -1,0 +1,24 @@
+# see http://about.travis-ci.org/docs/user/languages/php/ for more hints
+language: php
+
+# list any PHP version you want to test against
+php:
+  - 5.6
+  # aliased to a recent 7.x version
+  - 7.0
+  # aliased to a recent hhvm version
+  - hhvm
+
+before_script:
+  - composer self-update
+  - composer install --no-interaction
+
+# omitting "script:" will default to phpunit
+# use the $DB env variable to determine the phpunit.xml to use
+script:
+  - phpunit --configuration phpunit.xml --coverage-text
+
+#blacklist
+branches:
+  except:
+    - (analysis-)[(a-z)(A-Z)(0-9)]+
