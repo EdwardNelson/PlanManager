@@ -16,7 +16,6 @@ class PlanManagerServiceProvider extends ServiceProvider
         $this->app->singleton(Manager::class, function () {
             return new Manager();
         });
-        
     }
 
     public function boot()
@@ -26,11 +25,10 @@ class PlanManagerServiceProvider extends ServiceProvider
 
     public function bootPlans()
     {
-//        PlanManager::define('team-monthly')
+        //        PlanManager::define('team-monthly')
 //                    ->name('Team monthly')
 //                    ->trialDays(10)
 //                    ->yearly()
 //                    ->cost(3000);
-        
     }
 }
