@@ -1,9 +1,10 @@
 <?php
+
 namespace EdwardNelson\PlanManager\Test;
 
-use Mockery as m;
-use Illuminate\Contracts\Foundation\Application;
 use EdwardNelson\PlanManager\PlanManagerServiceProvider;
+use Illuminate\Contracts\Foundation\Application;
+use Mockery as m;
 
 class ServiceProviderTest extends TestCase
 {
@@ -23,7 +24,6 @@ class ServiceProviderTest extends TestCase
 
         $this->provider = new PlanManagerServiceProvider($this->appMock);
         parent::setUp();
-
     }
 
     protected function setUpMocks()
@@ -36,7 +36,6 @@ class ServiceProviderTest extends TestCase
         $this->assertInstanceOf(PlanManagerServiceProvider::class, $this->provider);
     }
 
-
     public function test_it_calls_singleton_in_register_method()
     {
         $this->appMock->shouldReceive('singleton')->once();
@@ -46,7 +45,7 @@ class ServiceProviderTest extends TestCase
 
     public function test_it_boots_plans()
     {
-        $mock = m::mock('\EdwardNelson\PlanManager\PlanManagerServiceProvider[bootPlans]', [$this->appMock]);
+        $mock = m::mock('\EdwardNelson\PlanManager\PlanManagerServiceProvider[bootPlans]', array($this->appMock));
         $mock->shouldReceive('bootPlans')->once();
 
         $mock->boot();
