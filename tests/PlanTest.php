@@ -1,4 +1,5 @@
 <?php
+
 namespace EdwardNelson\PlanManager\Test;
 
 use EdwardNelson\PlanManager\Exceptions\InvalidTrialsDays;
@@ -6,7 +7,6 @@ use EdwardNelson\PlanManager\Exceptions\PlanPropertyDoesNotExist;
 
 class PlanTest extends TestCase
 {
-
     private $plan;
 
     public function setUp()
@@ -56,7 +56,6 @@ class PlanTest extends TestCase
 
         $this->plan->trialDays(0);
         $this->assertEquals(0, $this->plan->trial_days);
-
     }
 
     public function test_it_can_set_no_trial()
@@ -103,9 +102,4 @@ class PlanTest extends TestCase
         $this->assertCount(1, $manager->getPlans());
         $this->assertNotNull($manager->find($plan->getKey()));
     }
-
-
-
-
-
 }

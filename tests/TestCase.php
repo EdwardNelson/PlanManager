@@ -1,8 +1,9 @@
 <?php
+
 namespace EdwardNelson\PlanManager\Test;
 
-use Orchestra\Testbench\TestCase as Orchestra;
 use EdwardNelson\PlanManager\PlanManagerServiceProvider;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {
@@ -13,9 +14,8 @@ abstract class TestCase extends Orchestra
      */
     protected function getPackageProviders($app)
     {
-        return [
+        return array(
             PlanManagerServiceProvider::class,
-        ];
+        );
     }
-
 }

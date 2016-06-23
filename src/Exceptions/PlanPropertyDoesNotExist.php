@@ -4,4 +4,6 @@ namespace EdwardNelson\PlanManager\Exceptions;
 
 use Exception;
 
-class PlanPropertyDoesNotExist extends Exception {}
+class PlanPropertyDoesNotExist extends Exception
+{
+}
