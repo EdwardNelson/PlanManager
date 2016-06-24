@@ -7,13 +7,13 @@ use Illuminate\Support\Collection;
 
 class Manager
 {
-    
     private $plans = [];
 
     /**
-     * Define a plan
+     * Define a plan.
      *
      * @param string $key Plan name
+     *
      * @return \EdwardNelson\PlanManager\Plan
      */
     public function define($key)
@@ -22,9 +22,10 @@ class Manager
     }
 
     /**
-     * Add a plan to the manager
+     * Add a plan to the manager.
      *
      * @param \EdwardNelson\PlanManager\Plan $plan
+     *
      * @return Plan
      */
     public function addPlan(Plan $plan)
@@ -35,15 +36,15 @@ class Manager
     }
 
     /**
-     * Remove a plan from the manager for the current request
-     * 
+     * Remove a plan from the manager for the current request.
+     *
      * @param string|\EdwardNelson\PlanManager\Plan $plan
      */
     public function removePlan($plan)
     {
         $key = $plan instanceof Plan ? $plan->getKey() : $plan;
 
-        foreach($this->plans as $array_key => $plan) {
+        foreach ($this->plans as $array_key => $plan) {
             if ($plan->getKey() == $key) {
                 unset($this->plans[$array_key]);
                 break;
@@ -52,16 +53,17 @@ class Manager
     }
 
     /**
-     * Find a plan by its key
+     * Find a plan by its key.
      *
      * @param string $key
+     *
      * @return \EdwardNelson\PlanManager\Plan|null
      */
     public function find($key)
     {
         $planByKey = null;
 
-        foreach($this->plans as $plan) {
+        foreach ($this->plans as $plan) {
             if ($plan->getKey() == $key) {
                 $planByKey = $plan;
                 break;
@@ -72,8 +74,8 @@ class Manager
     }
 
     /**
-     * Return the plans
-     * 
+     * Return the plans.
+     *
      * @return \Illuminate\Support\Collection
      */
     public function getPlans()
@@ -82,19 +84,18 @@ class Manager
     }
 
     /**
-     * Register a plan with the manager
+     * Register a plan with the manager.
      *
      * @param Plan $plan
+     *
      * @throws PlanKeyMustBeUnique
      */
     private function registerPlan(Plan $plan)
     {
-        if($this->find($plan->getKey())) {
+        if ($this->find($plan->getKey())) {
             throw new PlanKeyMustBeUnique(sprintf('The key "%s" is already bound to the manager.', $plan->getKey()));
         }
 
         array_push($this->plans, $plan);
     }
-
-
 }

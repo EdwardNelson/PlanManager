@@ -1,10 +1,9 @@
 <?php
+
 namespace EdwardNelson\PlanManager\Test;
-use Mockery as m;
 
 class PlanManagerTest extends TestCase
 {
-
     private $manager;
 
     public function setUp()
@@ -61,7 +60,6 @@ class PlanManagerTest extends TestCase
         $this->manager->removePlan($plan1);
         $this->assertCount(1, $this->manager->getPlans());
         $this->manager->removePlan($plan2);
-
     }
 
     public function test_it_can_return_plans_as_a_collection()
@@ -78,7 +76,6 @@ class PlanManagerTest extends TestCase
 
         $this->assertCount(2, $this->manager->getPlans());
     }
-    
 
     public function test_it_can_add_a_plan()
     {
@@ -97,9 +94,8 @@ class PlanManagerTest extends TestCase
         $this->assertCount(2, $this->manager->getPlans());
         $this->assertNotFalse(array_search($plan1, $this->manager->getPlans()->toArray()));
         $this->assertNotFalse(array_search($plan2, $this->manager->getPlans()->toArray()));
-
     }
-    
+
     public function test_it_can_retrieve_a_plan_by_key()
     {
         $plan1 = new \EdwardNelson\PlanManager\Plan('1');
@@ -120,6 +116,4 @@ class PlanManagerTest extends TestCase
         $this->manager->addPlan($plan1);
         $this->manager->addPlan($plan2);
     }
-
-
 }
