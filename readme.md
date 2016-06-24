@@ -1,1 +1,1 @@
-TODO
+[![Build Status](https://travis-ci.org/EdwardNelson/PlanManager.svg?branch=master)](https://travis-ci.org/EdwardNelson/PlanManager)
